@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Áudio-Música-2026 | Studio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="brand-mark">♪</span><div><strong>ÁUDIO-MÚSICA-2026</strong><small>ULTIMATE STUDIO 2.0 · BROWSER DAW</small></div></div>
+  <div class="transport">
+    <button id="playBtn" class="primary">▶ Tocar</button>
+    <button id="stopBtn">■ Parar</button>
+    <label class="bpm">BPM <input id="bpm" type="number" min="40" max="240" value="120"></label>
+    <label class="bpm">Compasso <select id="bars"><option>2</option><option selected>4</option><option>8</option><option>16</option></select></label>
+    <span id="status" class="status">Pronto</span>
+  </div>
+</header>
+<div class="app-layout">
+  <aside class="sidebar">
+    <div class="section-label">ESTÚDIO</div>
+    <button class="nav active" data-panel="workspace">▦ Visão geral</button>
+    <button class="nav" data-panel="instruments">♫ Instrumentos</button>
+    <button class="nav" data-panel="sequencer">▥ Step sequencer</button>
+    <button class="nav" data-panel="piano">▤ Piano roll</button>
+    <button class="nav" data-panel="playlist">▧ Playlist</button>
+    <button class="nav" data-panel="mixer">◉ Mixer e efeitos</button>
+    <button class="nav" data-panel="automation">〰 Automação</button>
+    <button class="nav" data-panel="chords">♬ Gerador de acordes</button>
+    <button class="nav" data-panel="audioedit">✂ Editor de áudio</button>
+    <button class="nav" data-panel="library">▤ Biblioteca</button>
+    <button class="nav" data-panel="audio">🎙 Áudio</button>
+    <div class="section-label">INSTRUMENTOS</div>
+    <button class="instrument-pick" data-instrument="piano">🎹 Teclado / Piano</button>
+    <button class="instrument-pick" data-instrument="guitar">🎸 Guitarra</button>
+    <button class="instrument-pick" data-instrument="acoustic">🪕 Violão</button>
+    <button class="instrument-pick" data-instrument="bass">🎸 Baixo</button>
+    <button class="instrument-pick" data-instrument="synth">〰 Sintetizador</button>
+    <button class="instrument-pick" data-instrument="organ">🎹 Órgão</button>
+    <button class="instrument-pick" data-instrument="strings">🎻 Cordas</button>
+    <button class="instrument-pick" data-instrument="drums">🥁 Bateria</button>
+    <div class="sidebar-note">Projeto salvo neste navegador ou exportado como arquivo JSON.</div>
+  </aside>
+  <main class="main">
+    <section id="workspace" class="panel active">
+      <div class="hero">
+        <div><div class="eyebrow">SEU ESTÚDIO MUSICAL</div><h1>Crie. Grave. Produza.</h1><p>Uma DAW original para criar batidas, melodias e arranjos direto no navegador.</p></div>
+        <div class="hero-note">♫ <span>STUDIO</span></div>
+      </div>
+      <div class="cards">
+        <article class="card"><span class="card-icon">🎹</span><h3>Instrumentos</h3><p>Teclado, guitarra, violão, baixo, synth, órgão, cordas e bateria sintetizados.</p><button data-goto="instruments">Abrir instrumentos →</button></article>
+        <article class="card"><span class="card-icon">▦</span><h3>Composição</h3><p>Step sequencer, piano roll com notas editáveis e playlist por compassos.</p><button data-goto="sequencer">Criar batida →</button></article>
+        <article class="card"><span class="card-icon">◉</span><h3>Mixer</h3><p>Volume master, pan e efeitos básicos de reverb, delay e distorção.</p><button data-goto="mixer">Abrir mixer →</button></article>
+        <article class="card"><span class="card-icon">🎙</span><h3>Áudio</h3><p>Grave pelo microfone, importe áudio e exporte uma mixagem WAV do projeto.</p><button data-goto="audio">Abrir áudio →</button></article>
+      </div>
+      <div class="panel-box"><h2>Comece rápido</h2><ol><li>Escolha um instrumento no menu lateral.</li><li>Adicione notas no Piano roll ou marque passos na bateria.</li><li>Pressione Tocar para ouvir e use o Mixer para ajustar o som.</li><li>Exporte o projeto JSON para continuar depois ou renderize WAV.</li></ol></div>
+      <p class="disclaimer">Nota: este é um estúdio web original inspirado em DAWs profissionais, não uma cópia do FL Studio. Os sons sintetizados são básicos e não substituem bibliotecas de samples profissionais.</p>
+    </section>
+    <section id="instruments" class="panel">
+      <div class="page-heading"><div><div class="eyebrow">SOUND LAB</div><h1>Instrumentos</h1><p>Selecione um timbre e toque notas de teste.</p></div></div>
+      <div class="instrument-grid">
+        <button class="sound-card selected" data-instrument="piano"><span>🎹</span><strong>Teclado / Piano</strong><small>Som percussivo</small></button>
+        <button class="sound-card" data-instrument="guitar"><span>🎸</span><strong>Guitarra elétrica</strong><small>Som com drive leve</small></button>
+        <button class="sound-card" data-instrument="acoustic"><span>🪕</span><strong>Violão acústico</strong><small>Pluck suave</small></button>
+        <button class="sound-card" data-instrument="bass"><span>🎸</span><strong>Baixo</strong><small>Graves definidos</small></button>
+        <button class="sound-card" data-instrument="synth"><span>〰</span><strong>Sintetizador</strong><small>Onda eletrônica</small></button>
+        <button class="sound-card" data-instrument="organ"><span>🎹</span><strong>Órgão</strong><small>Harmônicos contínuos</small></button>
+        <button class="sound-card" data-instrument="strings"><span>🎻</span><strong>Cordas</strong><small>Camada sustentada</small></button>
+        <button class="sound-card" data-instrument="drums"><span>🥁</span><strong>Bateria</strong><small>Kick, snare, hat, clap</small></button>
+      </div>
+      <div class="panel-box"><div class="row-between"><div><h2 id="activeInstrumentTitle">Teclado / Piano</h2><p id="instrumentDescription">Toque nas teclas para testar o timbre selecionado.</p></div><label>Volume do instrumento <input id="instrumentVolume" type="range" min="0" max="100" value="70"></label></div>
+      <div id="keyboard" class="keyboard"></div>
+      <div class="hint">Dica: também pode usar as teclas A W S E D F T G Y H U J do computador.</div></div>
+    </section>
+    <section id="sequencer" class="panel">
+      <div class="page-heading"><div><div class="eyebrow">RHYTHM LAB</div><h1>Step sequencer</h1><p>Marque os passos para montar a batida.</p></div><button id="clearDrumsBtn">Limpar bateria</button></div>
+      <div class="panel-box"><div class="step-head"><span>Canal</span><span id="stepNumbers"></span></div><div id="drumGrid" class="drum-grid"></div></div>
+    </section>
+    <section id="piano" class="panel">
+      <div class="page-heading"><div><div class="eyebrow">MELODIC EDITOR</div><h1>Piano roll</h1><p>Clique na grade para adicionar ou remover notas.</p></div><div class="button-row"><select id="noteLength"><option value="1">1 passo</option><option value="2" selected>2 passos</option><option value="4">4 passos</option></select><button id="clearNotesBtn">Limpar notas</button></div></div>
+      <div class="panel-box"><div class="roll-toolbar"><span>Instrumento: <strong id="rollInstrument">Teclado / Piano</strong></span><span>2 oitavas · 16 passos por compasso</span></div><div class="piano-roll-wrap"><div id="keyLabels" class="key-labels"></div><div id="pianoGrid" class="piano-grid"></div></div></div>
+    </section>
+    <section id="playlist" class="panel">
+      <div class="page-heading"><div><div class="eyebrow">ARRANGEMENT</div><h1>Playlist</h1><p>Organize blocos de padrões ao longo dos compassos.</p></div><button id="clearPlaylistBtn">Limpar playlist</button></div>
+      <div class="panel-box"><p class="muted">Clique numa célula para ativar/desativar um bloco. O padrão ativo repete o conteúdo atual.</p><div class="playlist-scroll"><div id="playlistGrid" class="playlist-grid"></div></div></div>
+    </section>
+    <section id="mixer" class="panel">
+      <div class="page-heading"><div><div class="eyebrow">MIX & FX</div><h1>Mixer e efeitos</h1><p>Ajuste o volume geral e o processamento de som.</p></div></div>
+      <div class="mixer-grid">
+        <div class="mixer-channel"><h3>Master</h3><div class="meter"></div><label>Volume <input id="masterVolume" type="range" min="0" max="100" value="80"></label><output id="masterValue">80%</output></div>
+        <div class="mixer-channel"><h3>Instrumento</h3><div class="meter"></div><label>Pan <input id="pan" type="range" min="-100" max="100" value="0"></label><output id="panValue">Centro</output></div>
+        <div class="mixer-channel fx"><h3>Reverb</h3><p>Espaço e ambiência</p><label>Quantidade <input id="reverb" type="range" min="0" max="70" value="12"></label><output id="reverbValue">12%</output></div>
+        <div class="mixer-channel fx"><h3>Delay</h3><p>Repetições rítmicas simples</p><label>Quantidade <input id="delay" type="range" min="0" max="60" value="0"></label><output id="delayValue">0%</output></div>
+        <div class="mixer-channel fx"><h3>Distorção</h3><p>Saturação para timbres fortes</p><label>Quantidade <input id="distortion" type="range" min="0" max="100" value="0"></label><output id="distortionValue">0%</output></div>
+      </div>
+      <p class="disclaimer">Os controles de efeitos são implementações simples de demonstração; não são equivalentes a todos os plugins profissionais de uma DAW comercial.</p>
+    </section>
+    <section id="audio" class="panel">
+      <div class="page-heading"><div><div class="eyebrow">RECORDING ROOM</div><h1>Áudio: gravar e exportar</h1><p>Microfone, arquivos de áudio e renderização do projeto.</p></div></div>
+      <div class="audio-grid">
+        <div class="panel-box"><h2>🎙 Gravar microfone</h2><p>Permita o acesso ao microfone para gravar sua voz ou instrumento externo.</p><div class="button-row"><button id="recordBtn" class="primary">● Gravar</button><button id="stopRecordBtn" disabled>Parar gravação</button></div><audio id="recordedAudio" controls></audio><a id="downloadRecording" class="download-link" hidden>Baixar gravação</a><p id="recordStatus" class="muted">A gravação usa o formato compatível com seu navegador (geralmente WebM).</p></div>
+        <div class="panel-box"><h2>📂 Importar áudio</h2><p>Carregue MP3, WAV, OGG, M4A ou outro formato suportado pelo navegador.</p><input id="audioFile" type="file" accept="audio/*"><audio id="importedAudio" controls></audio><p id="importStatus" class="muted">O arquivo importado pode ser ouvido aqui. Ainda não é automaticamente misturado na renderização WAV.</p></div>
+        <div class="panel-box"><h2>⬇ Exportar</h2><p>Exporte o projeto editável ou gere um arquivo WAV do sequenciador, notas e instrumentos básicos.</p><div class="button-row wrap"><button id="exportWavBtn" class="primary">Exportar mixagem WAV</button><button id="saveProjectBtn">Salvar projeto JSON</button><label class="file-button">Abrir projeto JSON<input id="loadProjectInput" type="file" accept=".json,application/json"></label></div><p id="exportStatus" class="muted">A exportação WAV é uma renderização básica; áudio importado e gravações não entram automaticamente na mixagem.</p></div>
+      </div>
+    </section>
+
+    <section id="automation" class="panel">
+      <div class="page-heading"><div><div class="eyebrow">CONTROL LANE</div><h1>Automação</h1><p>Desenhe uma curva de volume master ao longo dos compassos. A curva pode ser salva no projeto.</p></div><button id="clearAutomation">Limpar curva</button></div>
+      <div class="panel-box"><div class="row-between"><label>Parâmetro <select id="automationTarget"><option value="master">Volume master</option><option value="pan">Panorama</option><option value="filter">Filtro</option></select></label><span class="muted">Clique na grade para adicionar pontos; arraste para ajustar.</span></div><canvas id="automationCanvas" width="1000" height="250" aria-label="Editor de automação"></canvas><div class="hint">A automação de volume master é aplicada durante a reprodução. Outros parâmetros ficam desenhados e salvos como rascunho.</div></div>
+    </section>
+    <section id="chords" class="panel">
+      <div class="page-heading"><div><div class="eyebrow">COMPOSITION ASSISTANT</div><h1>Gerador de acordes</h1><p>Monte progressões musicais e envie as notas para o piano roll.</p></div></div>
+      <div class="panel-box"><div class="settings-row"><label>Tonalidade <select id="chordKey"><option value="0">C / Dó</option><option value="2">D / Ré</option><option value="4">E / Mi</option><option value="5">F / Fá</option><option value="7">G / Sol</option><option value="9">A / Lá</option><option value="11">B / Si</option><option value="1">C♯ / Dó♯</option><option value="3">D♯ / Ré♯</option><option value="6">F♯ / Fá♯</option><option value="8">G♯ / Sol♯</option><option value="10">A♯ / Lá♯</option></select></label><label>Escala <select id="chordScale"><option value="major">Maior</option><option value="minor">Menor</option></select></label><label>Progressão <select id="chordProgression"><option value="pop">Pop (I–V–vi–IV)</option><option value="sad">Melancólica (vi–IV–I–V)</option><option value="jazz">Sétimas (ii–V–I–vi)</option><option value="rock">Rock (I–IV–V–I)</option></select></label><button id="generateChords" class="primary">Gerar acordes</button></div><div id="chordPreview" class="chord-preview">Escolha as opções e gere uma progressão.</div></div>
+    </section>
+    <section id="audioedit" class="panel">
+      <div class="page-heading"><div><div class="eyebrow">SAMPLE WORKSHOP</div><h1>Editor de áudio</h1><p>Ferramentas simples para ouvir, inverter e recortar um arquivo importado.</p></div></div>
+      <div class="panel-box"><p>Importe um arquivo de áudio na aba Áudio. Ele aparecerá aqui para ouvir ou baixar uma cópia invertida quando o navegador permitir decodificação.</p><div class="button-row"><button id="playImported">▶ Ouvir áudio importado</button><button id="reverseImported">↶ Criar cópia invertida</button><button id="downloadImported">Baixar arquivo original</button></div><audio id="editAudioPlayer" controls></audio><p id="editStatus" class="muted">Nenhum arquivo selecionado.</p><div class="settings-row"><label>Início do trecho (segundos) <input id="clipStart" type="number" min="0" step="0.1" value="0"></label><label>Fim do trecho (segundos) <input id="clipEnd" type="number" min="0" step="0.1" value="5"></label><button id="exportClip">Exportar trecho WAV</button></div></div>
+    </section>
+    <section id="library" class="panel">
+      <div class="page-heading"><div><div class="eyebrow">SOUND BROWSER</div><h1>Biblioteca de sons</h1><p>Escolha sons sintetizados de demonstração ou importe seus próprios arquivos.</p></div></div>
+      <div class="instrument-grid">
+        <button class="sound-card" data-instrument="piano"><span>🎹</span><strong>Piano suave</strong><small>Teste timbre</small></button>
+        <button class="sound-card" data-instrument="guitar"><span>🎸</span><strong>Guitarra</strong><small>Teste timbre</small></button>
+        <button class="sound-card" data-instrument="acoustic"><span>🪕</span><strong>Violão</strong><small>Teste timbre</small></button>
+        <button class="sound-card" data-instrument="bass"><span>🎸</span><strong>Baixo</strong><small>Teste timbre</small></button>
+        <button class="sound-card" data-instrument="synth"><span>〰</span><strong>Synth lead</strong><small>Teste timbre</small></button>
+        <button class="sound-card" data-instrument="strings"><span>🎻</span><strong>Cordas</strong><small>Teste timbre</small></button>
+      </div>
+      <div class="panel-box"><h2>Importar sua própria biblioteca</h2><p>Você pode selecionar arquivos de áudio na aba Áudio e usá-los como referência ou sample para escutar.</p><button data-goto="audio">Abrir importação de áudio →</button></div>
+    </section>
+
+    <footer>Áudio-Música-2026 Ultimate Studio 2.0 · Projeto independente para navegador · Ferramentas ampliadas</footer>
+  </main>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
