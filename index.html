@@ -56,6 +56,29 @@
       </div>
       <div class="panel-box"><h2>Comece rápido</h2><ol><li>Escolha um instrumento no menu lateral.</li><li>Adicione notas no Piano roll ou marque passos na bateria.</li><li>Pressione Tocar para ouvir e use o Mixer para ajustar o som.</li><li>Exporte o projeto JSON para continuar depois ou renderize WAV.</li></ol></div>
       <p class="disclaimer">Nota: este é um estúdio web original inspirado em DAWs profissionais, não uma cópia do FL Studio. Os sons sintetizados são básicos e não substituem bibliotecas de samples profissionais.</p>
+      <div class="panel-box">
+  <h2>🌐 Salas musicais online</h2>
+  <p>Crie uma sala ou entre em uma sala com seus amigos para produzir música juntos.</p>
+
+  <label>Seu nome
+    <input id="roomUserName" type="text" maxlength="40" placeholder="Digite seu nome">
+  </label>
+
+  <label>Nome da sala
+    <input id="roomName" type="text" maxlength="80" placeholder="Minha sala musical">
+  </label>
+
+  <button id="createRoomBtn" class="primary">＋ Criar sala</button>
+
+  <hr>
+
+  <label>Código da sala
+    <input id="roomCode" type="text" maxlength="10" placeholder="Digite o código">
+  </label>
+
+  <button id="joinRoomBtn">Entrar na sala</button>
+  <p id="roomStatus" class="muted">Você ainda não está em uma sala.</p>
+</div>
     </section>
     <section id="instruments" class="panel">
       <div class="page-heading"><div><div class="eyebrow">SOUND LAB</div><h1>Instrumentos</h1><p>Selecione um timbre e toque notas de teste.</p></div></div>
