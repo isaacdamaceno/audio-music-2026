@@ -117,4 +117,27 @@ $("loadProjectInput").addEventListener("change",async e=>{const f=e.target.files
 drawAutomation();
 
 makeKeyboard();makeDrums();makePianoRoll();makePlaylist();activateInstrument("piano");
+ const supabaseScript = document.createElement("script");
+supabaseScript.src = "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2";
+
+supabaseScript.onload = async () => {
+  const SUPABASE_URL = "https://larkqyookslkrhggshjx.supabase.co";
+  const SUPABASE_KEY = "sb_publishable_UyjLvWVq2m-ySPrTmB4a7g_p9nhbryh";
+
+  window.supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+  );
+
+  const { error } = await window.supabaseClient.auth.signInAnonymously();
+
+  if (error) {
+    console.error("Erro:", error.message);
+  } else {
+    console.log("Conectado ao Supabase!");
+  }
+};
+
+document.head.appendChild(supabaseScript);
+
 })();
