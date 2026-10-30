@@ -140,4 +140,58 @@ supabaseScript.onload = async () => {
 
 document.head.appendChild(supabaseScript);
 
+async function createMusicRoom() {
+  const userName = $("roomUserName").value.trim();
+  const roomName = $("roomName").value.trim() || "Minha sala musical";
+  const status = $("roomStatus");
+
+  if (!userName) {
+    status.textContent = "Digite seu nome primeiro.";
+    return;
+  }
+
+  status.textContent = "Criando sala...";
+
+  const { data, error } = await window.supabaseClient.rpc(
+    "create_music_room",
+    { p_name: roomName, p_user_name: userName }
+  );
+
+  if (error) {
+    status.textContent = "Erro: " + error.message;
+    return;
+  }
+
+  $("roomCode").value = data.code;
+  status.textContent = "Sala criada! Código: " + data.code;
+}
+
+async function joinMusicRoom() {
+  const userName = $("roomUserName").value.trim();
+  const code = $("roomCode").value.trim();
+  const status = $("roomStatus");
+
+  if (!userName || !code) {
+    status.textContent = "Digite seu nome e o código da sala.";
+    return;
+  }
+
+  status.textContent = "Entrando na sala...";
+
+  const { data, error } = await window.supabaseClient.rpc(
+    "join_music_room",
+    { p_code: code, p_user_name: userName }
+  );
+
+  if (error) {
+    status.textContent = "Erro: " + error.message;
+    return;
+  }
+
+  status.textContent = "Você entrou na sala: " + data.name;
+}
+
+$("createRoomBtn").addEventListener("click", createMusicRoom);
+$("joinRoomBtn").addEventListener("click", joinMusicRoom);
+
 })();
